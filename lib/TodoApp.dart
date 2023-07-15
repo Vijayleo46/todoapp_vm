@@ -152,7 +152,7 @@ class TodoApp extends StatefulWidget {
    Widget build(BuildContext context) {
      return Scaffold(
        appBar: AppBar(
-         title: const Text('Todo.com',
+         title: const Text('Todo.com app',
          style: TextStyle(
            fontFamily: "Fasthand"
          ),),
