@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp_vm/sql_help.dart';
-import 'package:todoapp_vm/TodoApp.dart';
 class TodoApp extends StatefulWidget {
   const TodoApp({Key? key}) : super(key: key);
   @override
@@ -142,17 +141,43 @@ class TodoApp extends StatefulWidget {
    // Delete an item
    void _deleteItem(int id) async {
      await SQLHelper.deleteItem(id);
-     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-       content: Text('Successfully deleted a journal!'),
-     ));
+     // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+     //   content: Text("Successfully deleted a journal!"));
+     showDialog<void>(
+     context: context,
+     barrierDismissible: false,// user must tap button!
+     builder: (BuildContext context) {
+     return AlertDialog(
+     title: const Text('AlertDialog Title'),
+     content: SingleChildScrollView(
+     child: ListBody(
+     children: <Widget>[
+     Text('This is a demo alert dialog.'),
+     Text('Would you like to approve of this message?'),
+     ],
+     ),
+     ),
+     actions: <Widget>[
+     TextButton(
+     child: const Text('Approve'),
+     onPressed: () {
+     Navigator.of(context).pop();
+     },
+     ),
+     ],
+     );
+     },
+
+
+   );
      _refreshJournals();
    }
-
    @override
    Widget build(BuildContext context) {
      return Scaffold(
        appBar: AppBar(
-         title: const Text('Todo.com app',
+         backgroundColor: Colors.yellow,
+         title: const Text('Todo.com',
          style: TextStyle(
            fontFamily: "Fasthand"
          ),),
