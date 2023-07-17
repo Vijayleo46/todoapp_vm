@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp_vm/TodoApp.dart';
+
+import 'SplashScreen.dart';
 main()
 {
   runApp(MyApp());
@@ -12,9 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.red,
-            backgroundColor: Colors.lightBlueAccent
+            backgroundColor: Colors.lightBlueAccent,
       ),
-      home:TodoApp(),
+      home:SplashScreen(),
     );
   }
 }

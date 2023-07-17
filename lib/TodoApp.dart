@@ -176,7 +176,7 @@ class TodoApp extends StatefulWidget {
    Widget build(BuildContext context) {
      return Scaffold(
        appBar: AppBar(
-         backgroundColor: Colors.yellow,
+         backgroundColor: Colors.green,
          title: const Text('Todo.com',
          style: TextStyle(
            fontFamily: "Fasthand"
